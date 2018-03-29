@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="100sp"
+    android:layout_height="100sp"
+    android:layout_margin="10sp"
+    android:padding="10sp"
+    android:id="@+id/viewBack"
+    android:background="@android:color/holo_blue_light">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/room_no"
+        android:text="Room No. 1"
+        android:gravity="left"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/temperature"
+        android:text="30"
+        android:textSize="30dp"
+        android:gravity="center_horizontal"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:id="@+id/room_type"
+        android:text="Hall"
+        />
+</LinearLayout>
