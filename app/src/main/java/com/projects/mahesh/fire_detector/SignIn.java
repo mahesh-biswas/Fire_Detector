@@ -57,6 +57,7 @@ public class SignIn extends AppCompatActivity {
                                     if(task.isSuccessful()){
                                         Intent i = new Intent(SignIn.this,MainActivity.class);
                                         startActivity(i);
+                                        builder.create().dismiss();
                                         finish();
                                     }else{
                                         Toast.makeText(SignIn.this, "Login Failed", Toast.LENGTH_SHORT).show();

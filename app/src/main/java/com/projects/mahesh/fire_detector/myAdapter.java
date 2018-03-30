@@ -14,6 +14,8 @@ import android.widget.TextView;
 
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -48,11 +50,14 @@ public class myAdapter extends ArrayAdapter<RoomData>{
         TextView room_no = (TextView) mview.findViewById(R.id.room_no);
         TextView temperature = (TextView) mview.findViewById(R.id.temperature);
         TextView room_type = (TextView) mview.findViewById(R.id.room_type);
+//        TextView feed_time = mview.findViewById(R.id.feed_time);
         LinearLayout viewBack = mview.findViewById(R.id.viewBack);
 //        icon.setImageResource(list.get(position).image);
 //        Glide.with(context).load(Uri.parse(list.get(position).imageUri)).placeholder(R.drawable.loadingprimary).into(icon);
         room_no.setText(list.get(position).getRoom_no());
         temperature.setText(list.get(position).getTemperature());
+//        Date curTime = Calendar.getInstance().getTime();
+//        feed_time.setText(curTime.toString());
         switch(room_no.getText().toString().charAt(4)){
             case '1':   room_type.setText("Kitchen");   break;
             case '2':   room_type.setText("Hall");   break;
@@ -61,13 +66,15 @@ public class myAdapter extends ArrayAdapter<RoomData>{
             case '5':   room_type.setText("BedRoom_1");   break;
             default:    room_type.setText("misc");
         }
-        int temp = Integer.parseInt(temperature.getText().toString().trim());
+        float temp = Float.parseFloat(temperature.getText().toString().trim());
         if(temp<10){
             viewBack.setBackgroundColor(Color.parseColor("#33b5e5"));
         }else if(temp<30){
             viewBack.setBackgroundColor(Color.parseColor("#99cc00"));
-        }else{
+        }else if(temp<50 && temp>30){
             viewBack.setBackgroundColor(Color.parseColor("#ff8800"));
+        }else if(temp>50){
+            viewBack.setBackgroundColor(Color.parseColor("#cc0000"));
         }
 
         return mview;

@@ -46,8 +46,9 @@ public class SignUp extends AppCompatActivity {
         FirebaseUser usr = fAuth.getCurrentUser();
         if(usr!=null){
             startActivity(new Intent(SignUp.this,MainActivity.class));
+            finish();
         }else{
-            Toast.makeText(this, "User SignedIn", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "User NOt SignedIn", Toast.LENGTH_SHORT).show();
         }
 
 
@@ -55,6 +56,7 @@ public class SignUp extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(SignUp.this,SignIn.class));
+                finish();
             }
         });
         signUp.setOnClickListener(new View.OnClickListener() {
@@ -80,6 +82,7 @@ public class SignUp extends AppCompatActivity {
                                             if(task.isSuccessful()){
                                                 Toast.makeText(SignUp.this, "Signed Up Succesfully", Toast.LENGTH_SHORT).show();
                                                 startActivity(new Intent(SignUp.this,MainActivity.class));
+                                                finish();
                                             }
                                         }
                                     });
