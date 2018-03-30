@@ -80,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
         fDatabase.child(usr.getSociety()).child(usr.getFlatId()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                array.clear();
                 System.out.println("||||||||||||||||||||||||||||----------------------||||||||||||||||||||||||||||||||||");
                 System.out.println(usr.getSociety());
                 System.out.println(usr.getFlatId());

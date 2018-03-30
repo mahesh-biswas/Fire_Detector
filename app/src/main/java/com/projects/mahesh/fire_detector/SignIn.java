@@ -1,7 +1,9 @@
 package com.projects.mahesh.fire_detector;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -44,6 +46,10 @@ public class SignIn extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(Validate()){
+                    final AlertDialog.Builder builder = new AlertDialog.Builder(SignIn.this);
+                    builder.setTitle("loggingIn");
+                    builder.setMessage("wait..Loading");
+                    builder.create().show();
                     fAuth.signInWithEmailAndPassword(E2T(uname),E2T(upass))
                             .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                 @Override
@@ -51,6 +57,7 @@ public class SignIn extends AppCompatActivity {
                                     if(task.isSuccessful()){
                                         Intent i = new Intent(SignIn.this,MainActivity.class);
                                         startActivity(i);
+                                        finish();
                                     }else{
                                         Toast.makeText(SignIn.this, "Login Failed", Toast.LENGTH_SHORT).show();
                                     }
